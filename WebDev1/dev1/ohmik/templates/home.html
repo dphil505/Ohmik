@@ -1,0 +1,39 @@
+{% extends "main_dev.html" %} {% block title %} Home Page {% endblock %}
+{% block content %}
+<section class="content">
+    <div class="top1-tier">
+        <div id="dropdown" class="top1-child dropdown">
+            
+            <label for="analysis_type"> Analysis Type 
+                <select name="analysis" id="analysis" method="POST" action="/">
+                    {% for analysis in analysis_type %}
+                        <option value="{{analysis}}" SELECTED>{{analysis}}</option>
+                    {% endfor %}
+                </select>
+            </label> 
+
+            <label for="test_names"> Test Name 
+                <select name="test_name" id="test_names" method="POST" action="/">
+                    {% for test in test_name %}
+                        <option value="{{test}}" SELECTED>{{test}}</option>
+                    {% endfor %}
+                </select>
+            </label> 
+
+        </div>
+
+        <div class="top1-child input_button">
+            <button type="submit" value="Submit" name="action">Submit</button>
+        </div>
+
+        <div id='chart' class='chart'></div>
+
+
+    </div>
+</section>
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+    var graphs={{graphJSON | safe}};
+    Plotly.plot('chart', graphs, {});
+</script>
+{% endblock %}

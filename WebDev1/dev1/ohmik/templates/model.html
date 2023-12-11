@@ -1,0 +1,91 @@
+{% extends "main_dev.html" %} {% block title %} Battery Model Registration {% endblock %}
+{% block content %}
+<section class="content">
+    <div id="regit2" class="RegitInput">
+        <form action="modelRegit" method="POST">
+            {% csrf_token %}
+            <div class="model_input" style="margin-top:30px">
+                <div>
+                    <label for="sname" style="font-size:25px">
+                        Supplier Name *:
+                    </label>
+                    <select name="s_name" id="s_name" style="font-size:20px;" method="POST" action="/">
+                        {% for supplier in s_name %}
+                            <option value="{{supplier}}" SELECTED>{{supplier}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div style="margin-top:50px;">
+                    <label for="btype" style="font-size:25px"> Battery Type*: </label>
+                    <select name="btype" id="btype" style="font-size:20px;" method="POST" action="/">
+                        {% for type in btype %}
+                            <option value="{{type}}" SELECTED>{{type}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="model_input child3" style="margin-top:50px;">
+                    <label for="mname" style="font-size:25px;">Supplier Model Name*: </label>
+                    <input type="text" id="mname" name="mname" size="30" style="height:25px">
+    
+                </div>
+
+                <div class="model_input child4" style="margin-top:50px;">
+                    <label for="amphour" style="font-size:25px;">Amp Hours: </label>
+                    <input type="text" id="amphour" name="amphour" size="30" style="height:25px">
+    
+                </div>
+
+                <div class="model_input child5" style="margin-top:50px;">
+                    <label for="powerwh" style="font-size:25px;">Power(Wh): </label>
+                    <input type="text" id="powerwh" name="powerwh" size="30" style="height:25px">
+    
+                </div>
+
+                <div class="model_input child6" style="margin-top:50px;">
+                    <label for="maxvoltage" style="font-size:25px;">Max Voltage (V): </label>
+                    <input type="text" id="maxvoltage" name="maxvoltage" size="30" style="height:25px">
+    
+                </div>
+
+                <div class="model_input child7" style="margin-top:50px;">
+                    <label for="minvoltage" style="font-size:25px;">Minimum Voltage (V): </label>
+                    <input type="text" id="minvoltage" name="minvoltage" size="30" style="height:25px">
+    
+                </div>
+
+                <div class="model_input child8" style="margin-top:50px;">
+                    <label for="dimension" style="font-size:25px;">Dimension: </label>
+                    <input type="text" id="dimension" name="dimension" size="30" style="height:25px">
+    
+                </div>
+
+                <div class="model_input child9" style="margin-top:50px;">
+                    <label for="weight" style="font-size:25px;">Weight (g): </label>
+                    <input type="text" id="weight" name="weight" size="30" style="height:25px">
+    
+                </div>
+            </div>
+
+            
+            <div class="model input_button">
+                <button type="submit" value="Submit" name="action">Regist</button>
+            </div>
+            
+        </form>
+    </div>
+</section>
+
+
+<div id="flash2" class="flash_message" style="margin-left: 100px; margin-top: 50px;">
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+[cloudshell-user@ip-10-2-19-9 ~]$ aws s3control get-access-point --name ohmikvpc2 --account-id 999555329593
+{
+    "Name": "ohmikvpc2",
+    "Bucket": "ohmikbucket",
+    "NetworkOrigin": "VPC",
+    "VpcConfiguration": {
+        "VpcId": "vpc-1a2b3c"
+    },
+    "PublicAccessBlockConfiguration": {
+        "BlockPublicAcls": true,
+        "IgnorePublicAcls": true,
+        "BlockPublicPolicy": true,
+        "RestrictPublicBuckets": true
+    },
+    "CreationDate": "2023-12-06T09:00:27+00:00",
+    "Alias": "ohmikvpc2-whci5j96iyucu633qqbopgos4d55qusw1a-s3alias",
+    "AccessPointArn": "arn:aws:s3:us-west-1:999555329593:accesspoint/ohmikvpc2",
+    "Endpoints": {
+        "ipv4": "s3-accesspoint.us-west-1.amazonaws.com",
+        "fips": "s3-accesspoint-fips.us-west-1.amazonaws.com",
+        "fips_dualstack": "s3-accesspoint-fips.dualstack.us-west-1.amazonaws.com",
+        "dualstack": "s3-accesspoint.dualstack.us-west-1.amazonaws.com"}
+
+}

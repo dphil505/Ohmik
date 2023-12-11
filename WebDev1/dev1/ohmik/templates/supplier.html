@@ -1,0 +1,38 @@
+{% extends "main_dev.html" %} {% block title %} Battery Supplier Registration {% endblock %}
+{% block content %}
+<section class="content">
+    <div id="" class="RegitInput">
+        <form action="supplierRegit" method="POST">
+            {% csrf_token %}
+            <div id="suppliern" class="supplier_input" style="margin-top:30px">
+                <label for="sname" style="font-size:25px">
+                    Supplier Name *:
+                </label>
+                <input type="text" id="sname" name="sname" size="30" style="height:25px;">
+            </div>
+
+            <div id="supplierad" class="supplier_input" style="margin-top:50px;">
+                <label for="saddress" style="font-size:25px;">Supplier Address: </label>
+                <input type="text" id="saddress" name="saddress" size="30" style="height:25px">
+
+            </div>
+            <div class="supplier input_button">
+                <button type="submit" value="Submit" name="action">Regist</button>
+            </div>
+            
+        </form>
+    </div>
+</section>
+
+
+<div id="flash1" class="flash_message" style="margin-left: 100px; margin-top: 50px;">
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+{% endblock %}
